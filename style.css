@@ -1,0 +1,177 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #f0f0f0;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.progress-container {
+  width: 100%;
+  height: 20px;
+  background-color: #eee;
+  border-radius: 10px;
+  margin: 40px 0;
+  position: relative;
+}
+
+.milestone {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background: white;
+  border: 2px solid #4CAF50;
+  border-radius: 50%;
+  top: -2px;
+  transform: translateX(-50%);
+  transition: background-color 0.3s;
+  z-index: 1;
+}
+
+.milestone.achieved {
+  background: #4CAF50;
+}
+
+.milestone::after {
+  content: attr(data-level);
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+}
+
+.logo-milestone {
+  width: 32px;
+  height: 32px;
+  top: -6px;
+}
+
+.milestone-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.logo-milestone::after {
+  display: none;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(45deg, #4CAF50, #45a049);
+  border-radius: 10px;
+  width: 0%;
+  transition: width 0.5s ease-in-out;
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+  }
+
+  50% {
+    box-shadow: 0 0 20px rgba(76, 175, 80, 0.8);
+  }
+
+  100% {
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+  }
+}
+
+.achievement {
+  background: #ffd700;
+  padding: 10px;
+  border-radius: 4px;
+  margin: 10px 0;
+  text-align: center;
+  animation: slideIn 0.5s ease-out;
+  display: none;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.level-indicator {
+  font-size: 1.2em;
+  color: #4CAF50;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.game-container {
+  margin: 20px 0;
+}
+
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.grid-cell {
+  background: #e0e0e0;
+  aspect-ratio: 1;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.water-can {
+  width: 50px;
+  height: 50px;
+  background-image: url('attached_assets/logo-cw.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: transform 0.1s;
+  cursor: pointer;
+}
+
+.water-can:hover {
+  transform: scale(1.1);
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 4px;
+  display: block;
+  margin: 0 auto;
+}
+
+button:hover:not(:disabled) {
+  background-color: #45a049;
+}
+
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
